@@ -1,4 +1,12 @@
-<h2>Admin</h2>
+<h2>Current role: {{this.userService.getRole()}}</h2>
+<div>
+    <select name="role" (change)="changeRole(selectedRole.value)" #selectedRole>
+        <option value="{{roleName.ANONYMOUS}}">{{roleName.ANONYMOUS}}</option>
+        <option value="{{roleName.USER}}">{{roleName.USER}}</option>
+        <option value="{{roleName.ADMIN}}">{{roleName.ADMIN}}</option>
+    </select>
+</div>
+<hr>
 <nav>
     <li>
         <a routerLink="" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a>
@@ -10,4 +18,5 @@
         <a [routerLink]="['admin']" routerLinkActive="active" ariaCurrentWhenActive="page">Administration</a>
     </li>
 </nav>
+<hr>
 <router-outlet></router-outlet>
